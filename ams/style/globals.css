@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* All select */
+
+/* ::selection{
+    background-color:transparent;
+} */
+
+/* Profile Image  */
+
+@keyframes bounce {
+    0% {
+        border-color: red;
+    }
+    25% {
+        border-color: orange;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: green;
+    }
+    100% {
+        border-color: #006FEE;
+    }
+}
+
+.animated-profile {
+    animation: bounce 5s infinite;
+    transition: transform 0.3s ease;
+}
+
+
+
+@keyframes allLightPulse {
+    0% {
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.5); 
+        background-color:red ;
+    }
+    25% {
+        box-shadow: 0 0 10px rgba(255, 165, 0, 1); 
+        background-color:rgba(255, 165, 0, 1) ;
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 1); 
+        background-color:rgba(255, 255, 0, 1) ;
+    }
+    75% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 1); 
+        background-color: #32CD32; 
+    }
+    100% {
+        box-shadow: 0 0 0px #006FEE;
+        background-color:#006FEE ;
+    }
+}
+
+
+.badge {
+    position: absolute;
+    bottom: 5px;
+    right:30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white; 
+    animation: allLightPulse 5s infinite;
+    transition: transform 0.3s ease;
+}
+
+
+/* Avtar Image  */
+
+@keyframes greenLightPulse {
+    0% {
+        box-shadow: 0 0 0px rgba(0, 255, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 1);
+    }
+    100% {
+        box-shadow: 0 0 0px rgba(0, 255, 0, 0.5);
+    }
+}
+
+.profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.green-badge {
+    position: absolute;
+    bottom: 5px;
+    left:30px;
+    width: 15px;
+    height: 15px;
+    background-color: #32CD32; 
+    border-radius: 50%;
+    border: 2px solid white; 
+    animation: greenLightPulse 2s infinite;
+}
+
+
+/* Admin Blue-Badge  */
+
+
+@keyframes blueLightPulse {
+    0% {
+        box-shadow: 0 0 0px rgba(0, 0, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 0px rgba(0, 0, 255, 0.5);
+    }
+}
+
+.blue-badge {
+    position: absolute;
+    bottom: 5px;
+    left:30px;
+    width: 15px;
+    height: 15px;
+    background-color: #005BC4; 
+    border-radius: 50%;
+    border: 2px solid white; 
+    animation: blueLightPulse 2s infinite;
+}
+
+
+
+
+
+
