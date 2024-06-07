@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { BreadCrumb } from "../componets/breadcrumbs";
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Button, Input, Textarea , DateRangePicker } from "@nextui-org/react";
 import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -71,16 +71,11 @@ export function Leave() {
                                                 </h1>
                                             </div>
                                             <div className="w-full">
-                                                {/* <DateRangePicker
+                                                <DateRangePicker
                                                     label="Date"
                                                     variant="bordered"
-                                                    value={
-                                                        formik.values.leave_date
-                                                    }
-                                                    onChange={(value) =>
-                                                        formik.setFieldValue("leave_date", value)
-                                                    }
-                                                /> */}
+                                                    
+                                                />
                                                 {formik.touched.leave_date &&
                                                     formik.errors.leave_date ? (
                                                     <div className="text-error-color text-xs">

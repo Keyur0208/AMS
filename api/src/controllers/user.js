@@ -145,14 +145,24 @@ const userGet = async (req, res) => {
     res.status(200).send({ result: message.getUser, user: req.user });
 }
 
-const userGetAll = async (req, res) => {
+const userSearch = async (req, res) => {
     try {
-        let data = await userModel.find({ is_deleted: false });
-        return res.status(200).send({ result: message.getUSerAll, data });
-    }
-    catch (error) {
-        console.error('Error during login:', error);
-        return res.status(400).send({ result: message.something_went_wrong });
+        const { roles, first_name } = req.query;
+        let query = {is_deleted: false};
+        if (roles) {
+            query.roles = roles;
+        }
+        if (first_name) { 
+            query.first_name = new RegExp(first_name, 'i'); 
+        }
+
+        const users = await userModel.find(query);
+
+        res.status(200).json( {result:message.Search_User ,users});
+
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ result:message.something_went_wrong });
     }
 }
 
@@ -200,6 +210,7 @@ const userDelete = async (req, res) => {
         if (!user) {
             return res.status(404).send({ result: message.User_not_found });
         }
+        user.is_actived = false;
         user.is_deleted = true;
         user.updated_at = Date.now();
         await user.save();
@@ -268,4 +279,4 @@ const profileEdit = async (req, res) => {
     }
 }
 
-module.exports = { register, login, userGet, userGetAll, userEdit, userDelete, profileEdit };
+module.exports = { register, login, userGet, userSearch, userEdit, userDelete, profileEdit };

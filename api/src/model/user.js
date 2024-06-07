@@ -41,7 +41,7 @@ const User = new mongoose.Schema({
     },
     updated_at: {
         type: Date,
-        default: Date.now
+        default: null
     },
     is_actived: {
         type: Boolean,
