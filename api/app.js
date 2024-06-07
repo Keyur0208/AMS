@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var dbConfig = require('./database/db.config');
 var UserRoutes = require('./src/routes/user');
 const indexRouter = require('./src/routes/index');
+const EventRouter = require('./src/routes/events');
+const LeaveRouter = require('./src/routes/leaves');
 app.set('port', (process.env.PORT || 4000));
 
 
@@ -41,6 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(indexRouter);
 app.use('/api/auth', UserRoutes);
+app.use('/api/events', EventRouter);
+app.use('/api/leaves',LeaveRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
