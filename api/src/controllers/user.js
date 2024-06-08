@@ -129,7 +129,7 @@ const login = async (req, res) => {
 
             // Jwt Token Generated
 
-            const token = jwt.sign(data, JWT_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign(data, JWT_SECRET);
 
             res.status(200).send({ result: message.login_success, token });
         }

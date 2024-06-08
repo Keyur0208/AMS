@@ -38,5 +38,12 @@
     "leave_created":"successfully Leave Created",
     "leave_not_found":"Leave not found",
     "leave_update":"successfully leave update",
-    "mention":"Enter The mention"
+    "mention":"Enter The mention",
+    "empty_check_in":"Enter The Check in Time",
+    "valid_check_in":"Check-in time must be between 01:00 and 24:00 in HH:mm format.",
+    "empty_check_out":"Enter The Check out time",
+    "valid_check_out":"Check-out time must be between 01:00 and 24:00 in HH:mm format.",
+    "valid_break_start":"Break start time must be between 01:00 and 24:00 in HH:mm format.",
+    "valid_break_out":"Break stop time must be between 01:00 and 24:00 in HH:mm format.",
+    "attdance_craeted":"successfully attdance created"
 }
