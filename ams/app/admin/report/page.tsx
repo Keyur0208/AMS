@@ -85,7 +85,7 @@ export default function page() {
                             color="primary"
                             className="w-10/12 lg:w-full"
                         >
-                            Generate Record
+                            Download CSV
                         </Button>
                     </div>
                 </div>

@@ -57,20 +57,24 @@ export default function page() {
                                 <TimeInput
                                     label="Check in Time"
                                     color="primary"
+                                    hourCycle={24}
                                 />
                                 <TimeInput
                                     label="Break-Start Time"
                                     color="success"
+                                    hourCycle={24}
                                 />
                             </div>
                             <div className="flex  flex-col-reverse lg:flex-row  flex-wrap  lg:flex-nowrap w-full gap-5 " >
                                 <TimeInput
                                     label="Check Out Time"
                                     color="primary"
+                                    hourCycle={24}
                                 />
                                 <TimeInput
                                     label="Break-Stop Time"
                                     color="success"
+                                    hourCycle={24}
                                 />
                             </div>
                             <div className="flex flex-wrap  lg:flex-nowrap w-full gap-5 " >
@@ -78,11 +82,13 @@ export default function page() {
                                     label="Total Work Time"
                                     isReadOnly
                                     color="secondary"
+                                    hourCycle={24}
                                 />
                                 <TimeInput
                                     label="Total Break Time"
                                     isReadOnly
                                     color="secondary"
+                                    hourCycle={24}
                                 />
                             </div>
                             <Button className="w-full" color="primary"  >
