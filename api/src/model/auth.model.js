@@ -3,7 +3,7 @@ const userModel = require('../model/user');
 const checkUserIsExits = async(email)=>{
     try
     {
-        const result = await userModel.findOne({email});
+        const result = await userModel.findOne({email,is_deleted:false});
         return result;
     }
     catch (error)

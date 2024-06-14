@@ -44,6 +44,20 @@ const created_event = async (req, res) => {
     }
     catch (error) {
         console.error('Error during created event:', error);
+        return res.status(400).send({ result: error});
+    }
+}
+
+const get_event = async(req,res) =>{
+
+    const eventId = req.params.id;
+
+    try {
+        const event = await eventModel.findOne({ _id: eventId, is_deleted: false });
+        return res.status(200).send({ result: message.display_Event, event });
+    }
+    catch (error) {
+        console.error('Error Data Fatheing Evnets:', error);
         return res.status(400).send({ result: message.something_went_wrong });
     }
 }
@@ -55,7 +69,7 @@ const getall_event = async (req, res) => {
         return res.status(200).send({ result: message.display_Event, event });
     }
     catch (error) {
-        console.error('Error updating user:', error);
+        console.error('Error Data Fatheing Evnets:', error);
         return res.status(400).send({ result: message.something_went_wrong });
     }
 }
@@ -110,74 +124,12 @@ const delete_event = async (req, res) => {
     }
 }
 
-// const pdf_event = async (req, res) => {
-//     const eventId = req.params.id;
-
-//     try {
-//         const event = await eventModel.findById(eventId);
-//         if (!event) {
-//             return res.status(404).send({ result: message.event_not_found });
-//         }
-
-//         const doc = new PDFDocument({ size: 'A4', margin: 50 });
-
-//         // Set the response headers to indicate a PDF file
-//         res.setHeader('Content-Type', 'application/pdf');
-//         res.setHeader('Content-Disposition', `attachment; filename="event-${event._id}.pdf"`);
-
-//         // Pipe the PDF document directly to the response
-//         doc.pipe(res);
-
-//         doc.rect(0, 0, doc.page.width, doc.page.height).fill('white');
-
-//         doc.fill('black').stroke();
-
-//         doc.font('Helvetica')
-//             .fontSize(40)
-//             .fillColor('black')
-//             .font('Helvetica-Bold')
-//             .text(`${event.event_name}`, { align: 'center' });
-
-//         doc.moveDown();
-
-//         doc.font('Helvetica')
-//             .fontSize(12)
-//             .fillColor('black')
-//             .font('Helvetica-Bold')
-//             .text(`Date: ${event.event_date}`, { align: 'right' });
-
-//         doc.moveDown();
-
-//         doc.font('Helvetica')
-//             .fontSize(12)
-//             .fillColor('black')
-//             .font('Helvetica-Bold')
-//             .text(`${event.event_des}`, { align: 'left' });
-
-//         doc.moveDown();
-
-//         doc.font('Helvetica')
-//             .fontSize(18)
-//             .fillColor('black')
-//             .text(`Organizer: `, { continued: true })
-//             .font('Helvetica-Bold')
-//             .text(`${event.first_name} ${event.last_name}`, { align: 'left' });
-
-//         doc.moveDown();
-
-//         // Finalize the PDF and end the stream
-//         doc.end();
-//     }
-//     catch (error) {
-//         console.error('Error deleting event:', error);
-//         return res.status(400).send({ result: message.something_went_wrong });
-//     }
-// }
 
 const pdf_event = async (req, res) => {
-    const eventId = req.params.id;
+
+    const eventName = req.params.name;
     try {
-        const event = await eventModel.findById(eventId);
+        const event = await eventModel.findOne({event_name:eventName});
         if (!event) {
             return res.status(404).send({ result: message.event_not_found });
         }
@@ -215,4 +167,4 @@ const pdf_event = async (req, res) => {
 
 
 
-module.exports = { created_event, edit_event, delete_event, getall_event, pdf_event };
+module.exports = { created_event, edit_event, delete_event, getall_event, pdf_event , get_event};

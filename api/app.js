@@ -12,7 +12,10 @@ const indexRouter = require('./src/routes/index');
 const EventRouter = require('./src/routes/events');
 const LeaveRouter = require('./src/routes/leaves');
 const AttendanceRouter = require('./src/routes/attendance');
+var cors = require('cors')
 app.set('port', (process.env.PORT || 4000));
+
+app.use(cors())
 
 
 // MongoDB Connection //
@@ -52,9 +55,10 @@ app.use('/api/attendance',AttendanceRouter);
 // catch 404 and forward to error handler
 
 app.use(function (req, res, next) {
-  res.status(200).send({ result: "🚫 Not Found 🚫" });
+  // res.status(400).send({ result: "🚫 Not Found 🚫" });
   next(createError(404));
 });
+
 
 // error handler
 
