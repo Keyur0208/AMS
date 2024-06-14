@@ -1,5 +1,5 @@
 {
-    "empty_email": "Enter email address",
+    "empty_email": "Enter Email address",
     "valid_email":"Enter The valid Email",
     "alerdy_email":"Email Already Exists ",
     "empty_first_name":"Enter First name",
@@ -24,7 +24,7 @@
     "user_not_found": "User not found.",
     "unauthorized_role": "You are not authorized to update these fields.",
     "Search_User":"successfully Search User",
-    "admin_craeted_event":"only Admin created by event",
+    "admin_craeted_event":"Only Admin Created",
     "empty_event_date":"Enter The Event Date",
     "empty_event_name":"Enter The Event Name",
     "empty_event_des":"Enter The Event Description",

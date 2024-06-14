@@ -21,13 +21,13 @@ const register = async (req, res) => {
             return res.status(200).send({ result: message.empty_email });
         }
         else if (!emailRegex.test(reqData.email)) {
-            return res.status(200).send({ result: message.valid_email });
+            return res.status(400).send({ result: message.valid_email });
         }
 
         // Check if user already exists
 
         else if (exitsUSer) {
-            return res.status(200).send({ result: message.alerdy_email });
+            return res.status(400).send({ result: message.alerdy_email });
         }
 
         // First name validation
@@ -84,13 +84,44 @@ const register = async (req, res) => {
 }
 
 
-const login = async (req, res) => {
-
-    const reqData = req.body;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const user = await userModel.findOne({ email: reqData.email });
+const Check_Email = async (req, res) => {
 
     try {
+        const reqData = req.body;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const exitsUSer = await checkUserIsExits(reqData.email);
+
+        // Email Validation
+
+        if (typeof reqData.email === "undefined" || reqData.email === "") {
+            return res.status(200).send({ result: message.empty_email });
+        }
+        else if (!emailRegex.test(reqData.email)) {
+            return res.status(400).send({ result: message.valid_email });
+        }
+
+        if (exitsUSer) {
+            return res.status(400).send({ result: message.alerdy_email });
+        }
+        else {
+            return res.status(200).send({ result: "Ok" });
+        }
+    }
+    catch (error) {
+
+        console.error('Error during login:', error);
+        return res.status(400).send({ result: message.something_went_wrong });
+    }
+}
+
+
+const login = async (req, res) => {
+
+    try {
+
+        const reqData = req.body;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const user = await userModel.findOne({ email: reqData.email });
 
         // Email Validation
 
@@ -136,6 +167,7 @@ const login = async (req, res) => {
 
     }
     catch (error) {
+
         console.error('Error during login:', error);
         return res.status(400).send({ result: message.something_went_wrong });
     }
@@ -148,21 +180,21 @@ const userGet = async (req, res) => {
 const userSearch = async (req, res) => {
     try {
         const { roles, first_name } = req.query;
-        let query = {is_deleted: false};
-        if (roles) {
+        let query = { is_deleted: false };
+        if (roles && roles !== 'all') {
             query.roles = roles;
         }
-        if (first_name) { 
-            query.first_name = new RegExp(first_name, 'i'); 
+        if (first_name !== undefined && first_name.trim() !== '') {
+            query.first_name = new RegExp(first_name, 'i');
         }
 
-        const users = await userModel.find(query);
+        const users = await userModel.find(query, ['first_name', 'last_name', 'roles', 'password', 'id', "email"]);
 
-        res.status(200).json( {result:message.Search_User ,users});
+        res.status(200).json({ result: message.Search_User, users });
 
     } catch (error) {
         console.error('Error fetching users:', error);
-        res.status(500).json({ result:message.something_went_wrong });
+        res.status(500).json({ result: message.something_went_wrong });
     }
 }
 
@@ -279,4 +311,4 @@ const profileEdit = async (req, res) => {
     }
 }
 
-module.exports = { register, login, userGet, userSearch, userEdit, userDelete, profileEdit };
+module.exports = { register, login, userGet, userSearch, userEdit, userDelete, profileEdit, Check_Email };
