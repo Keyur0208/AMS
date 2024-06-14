@@ -1,8 +1,8 @@
 "use client"
 import { Button, Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip } from "@nextui-org/react";
-import DefaultLayout from "../../../componets/Layouts/DefaultLayout";
-import { BreadCrumb } from "../../../componets/breadcrumbs";
+import DefaultLayout from "../../../../componets/Layouts/DefaultLayout";
+import { BreadCrumb } from "../../../../componets/breadcrumbs";
 import SearchIcon from '@mui/icons-material/Search';
 import { Modal, ModalContent, useDisclosure, Input } from "@nextui-org/react";
 
@@ -127,10 +127,10 @@ export default function page() {
                                         <TableRow key={index}>
                                             <TableCell >{index + 1}</TableCell>
                                             <TableCell>{item.name}</TableCell>
-                                            <TableCell style={{ color: item.day_1 === 'A' ? 'red' : 'green' }}>{item.day_1}</TableCell>
-                                            <TableCell style={{ color: item.day_2 === 'A' ? 'red' : 'green' }}>{item.day_2}</TableCell>
-                                            <TableCell style={{ color: item.day_3 === 'A' ? 'red' : 'green' }}>{item.day_3}</TableCell>
-                                            <TableCell style={{ color: item.day_4 === 'A' ? 'red' : 'green' }}>{item.day_4}</TableCell>
+                                            <TableCell>{item.day_1}</TableCell>
+                                            <TableCell>{item.day_2}</TableCell>
+                                            <TableCell >{item.day_3}</TableCell>
+                                            <TableCell>{item.day_4}</TableCell>
                                         </TableRow>
                                     )
                                 })

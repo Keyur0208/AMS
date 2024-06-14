@@ -1,12 +1,12 @@
 "use client"
 import { Button, Autocomplete, AutocompleteItem } from "@nextui-org/react";
-import DefaultLayout from "../../../componets/Layouts/DefaultLayout";
-import { BreadCrumb } from "../../../componets/breadcrumbs";
 import { DatePicker } from "@nextui-org/date-picker";
-import { StaffIcon_black } from "../../../style/icon/stafficon_black";
-import { PresentIcon } from "../../../style/icon/presenticon";
-import { AbsentIcon } from "../../../style/icon/absenticon";
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import { AbsentIcon } from "../../../../style/icon/absenticon";
+import { StaffIcon_black } from "../../../../style/icon/stafficon_black";
+import { PresentIcon } from "../../../../style/icon/presenticon";
+import { BreadCrumb } from "../../../../componets/breadcrumbs";
+import DefaultLayout from "../../../../componets/Layouts/DefaultLayout";
 
 export default function page() {
 
@@ -60,7 +60,7 @@ export default function page() {
 
                 {/* Main Part  */}
 
-                <div className="flex  justify-between items-center  bg-white rounded-lg p-5  mt-2  overflow-scroll  lg:overflow-hidden"  >
+                <div className="flex  justify-between items-center  bg-white rounded-lg p-5  mt-2  overflow-scroll  sm:overflow-hidden"  >
                     <div className="pr-5 lg:pr-0"  >
                         <Autocomplete
                             label="Role"

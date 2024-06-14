@@ -1,14 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "@reduxjs/toolkit"
-import {
-    useDispatch as useAppDispatch,
-    useSelector as useAppSelector,
-    TypedUseSelectorHook,
-} from 'react-redux';
+import authReducer from "./auth/Authslice";
+import emailReducer from "./auth/Emailslice";
+import eventReducer from "./auth/EventSlice";
 
-export const store = configureStore({
-    reducer:{}
+
+const store = configureStore({
+    reducer:{
+        auth: authReducer,
+        emailCheck:emailReducer,
+        event:eventReducer,
+    }
 })
 
-
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export default store;

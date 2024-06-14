@@ -37,7 +37,7 @@ const Clock: React.FC = () => {
       const addHighlight = () => {
         one.classList.add("highlight");
       };
-      
+
 
       secHand.addEventListener("animationiteration", addHighlight);
 
@@ -69,7 +69,7 @@ const Clock: React.FC = () => {
       />
       <span className="twelve">12</span>
       <span className="one">1</span>
-      <span ref={oneRef} className={`two ${highlightOne ? "highlight" : ""}`}>2</span>
+      <span className="two">2</span>
       <span className="three">3</span>
       <span className="four">4</span>
       <span className="five">5</span>

@@ -1,6 +1,6 @@
 "use client"
-import DefaultLayout from "../../../componets/Layouts/DefaultLayout";
-import { BreadCrumb } from "../../../componets/breadcrumbs";
+import DefaultLayout from "../../../../componets/Layouts/DefaultLayout";
+import { BreadCrumb } from "../../../../componets/breadcrumbs";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell,  Input, Button} from "@nextui-org/react";
 import SearchIcon from '@mui/icons-material/Search';
 

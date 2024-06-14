@@ -1,12 +1,12 @@
 "use client"
 import { Button, Image, Input } from "@nextui-org/react";
-import DefaultLayout from "../../../componets/Layouts/DefaultLayout";
 import { Textarea } from "@nextui-org/react";
 import clsx from "clsx";
 import * as Yup from 'yup';
 import { useFormik } from "formik";
 import ImageUploading from 'react-images-uploading';
 import { useState } from "react";
+import DefaultLayout from "../../../../componets/Layouts/DefaultLayout";
 
 export default function Page() {
 
