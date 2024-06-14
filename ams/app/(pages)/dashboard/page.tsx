@@ -1,13 +1,12 @@
-"use client"
 import clsx from "clsx";
 import DefaultLayout from "../../../componets/Layouts/DefaultLayout";
-import { BreadcrumbItem, Breadcrumbs, Button, TimeInput } from "@nextui-org/react";
-import { Calendar } from "@nextui-org/react";
-import { today, getLocalTimeZone } from "@internationalized/date";
-import Clock from "../../../componets/clock/clock";
 import { BreadCrumb } from "../../../componets/breadcrumbs";
+import { CalendarModule } from "../../../section/calender";
+import { AttdanceModule } from "../../../section/attendance";
+
 
 export default function page() {
+
     return (
         <>
             <div className={clsx("bg-light-blue-bg  ")}  >
@@ -32,64 +31,12 @@ export default function page() {
 
                     {/* Calendar and clock */}
 
-
-                    <div className="flex justify-center" >
-                        <div className="flex flex-wrap  flex-row justify-center  items-center gap-x-14 gap-y-5 lg:gap-y-5  mt-5 bg-white p-5  lg:p-10  w-full md:w-8/12  border-2  rounded-2xl " >
-                            <div>
-                                <h1 className="text-light-black text-start font-semibold " >Work Date And Time</h1>
-                                <Calendar
-                                    aria-label="Date (Show Month and Year Picker)"
-                                    value={today(getLocalTimeZone())}
-                                    showMonthAndYearPickers
-                                />
-                            </div>
-                            <div>
-                                <Clock />
-                            </div>
-                        </div>
-                    </div>
+                    <CalendarModule/>
 
                     {/* Main Part  */}
 
-                    <div className="flex justify-center" >
-                        <div className="flex flex-wrap  flex-row justify-center items-center gap-x-14 gap-y-5 lg:gap-y-5 mt-5  w-full md:w-8/12 ">
-                            <div className="flex flex-wrap  lg:flex-nowrap w-full gap-5 " >
-                                <TimeInput
-                                    label="Check in Time"
-                                    color="primary"
-                                />
-                                <TimeInput
-                                    label="Break-Start Time"
-                                    color="success"
-                                />
-                            </div>
-                            <div className="flex  flex-col-reverse lg:flex-row  flex-wrap  lg:flex-nowrap w-full gap-5 " >
-                                <TimeInput
-                                    label="Check Out Time"
-                                    color="primary"
-                                />
-                                <TimeInput
-                                    label="Break-Stop Time"
-                                    color="success"
-                                />
-                            </div>
-                            <div className="flex flex-wrap  lg:flex-nowrap w-full gap-5 " >
-                                <TimeInput
-                                    label="Total Work Time"
-                                    isReadOnly
-                                    color="secondary"
-                                />
-                                <TimeInput
-                                    label="Total Break Time"
-                                    isReadOnly
-                                    color="secondary"
-                                />
-                            </div>
-                            <Button className="w-full" color="primary"  >
-                                Submit
-                            </Button>
-                        </div>
-                    </div>
+                    <AttdanceModule/>
+                   
 
                     {/* daily thoughts */}
 
@@ -103,7 +50,7 @@ export default function page() {
                     </div>
 
                 </DefaultLayout>
-                
+
             </div>
 
         </>

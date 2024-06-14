@@ -27,9 +27,9 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={clsx(fontPoppin.className)} >
 				<Redux_Provider>
-					<Nextui_Providers>
-						{children}
-					</Nextui_Providers>
+						<Nextui_Providers>
+							{children}
+						</Nextui_Providers>
 				</Redux_Provider>
 			</body>
 		</html>

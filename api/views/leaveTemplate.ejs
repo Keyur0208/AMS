@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF-SECTION</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .orange {
+            background-color: #006fee;
+            height: 4rem;
+        }
+
+        .gray {
+            margin-top: 0.2rem;
+            background-color: black;
+            height: 1rem;
+        }
+
+        .leave {
+            margin-top: 3rem;
+            margin-left: 2rem;
+        }
+
+        .center {
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .respectd {
+            margin-top: 1.5rem;
+        }
+
+        .description {
+            width: 95%;
+            margin-top: 1.5rem;
+        }
+
+        .your {
+            margin-top: 1.5rem;
+        }
+
+        .copyright{
+            position: absolute;
+            top: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="orange">
+    </div>
+    <div class="gray">
+
+    </div>
+    <div class="center">
+        <h1><%= reason_name %></h1>
+    </div>
+    <div class="leave">
+        <div class="date">
+            <%= leave_date %>
+        </div>
+        <div class="respectd">
+            Respected <%= mention %>,
+        </div>
+        <div class="description">
+            <%= reason_des %>
+        </div>
+        <div class="your">
+            <h4 style="font-weight: 100;">Yours Faithfully</h4>
+            <h4 style="font-weight: 100; margin-top:1rem;"><%= first_name %> <%= last_name %></h4>
+        </div>
+        <div class="copyright">
+            &copy; By Keyur Pansuriya
+        </div>
+    </div>
+</body>
+</html>
