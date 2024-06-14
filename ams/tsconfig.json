@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -21,7 +22,7 @@
       "@/*": ["./app*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "config/fonts.tsx", "componets/clock/clock.tsx", "app/(pages)/leave/page.tsx", "section/leave.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "config/fonts.tsx", "componets/clock/clock.tsx", "app/(pages)/leave/page.tsx", "section/leave.tsx", "componets/addstaff.tsx", "app/(pages)/admin/staff/page.tsx", "componets/deleteStaff.tsx"],
   "exclude": ["node_modules"]
 }
 
